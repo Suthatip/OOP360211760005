@@ -27,7 +27,7 @@ public class StudentApp {
 
     private static Student inputDataBuffer(Student s3) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Please enter your information");
+        System.out.println("Please enter your information: ");
         System.out.print("Name: ");
         s3.setName(reader.readLine());
         System.out.print("Age: ");
