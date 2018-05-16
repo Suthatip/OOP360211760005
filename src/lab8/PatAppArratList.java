@@ -5,40 +5,48 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class PatAppArratList {
+class PatAppArrayList {
+
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("How many data you have: ");
+        System.out.print("How many pets do you have? : ");
         int val = Integer.parseInt(reader.readLine());
-        ArrayList<Pet> myList = new ArrayList<Pet>();
-        myList = inputData(myList,val);
-        showData(myList);
+        ArrayList<Pet> myPet = new ArrayList<Pet>();
 
-
-
-        private static void showData(ArrayList<Pet> myList) {
-            for (int i = 0; i<myList.size(); i++) {
-                System.out.println("Pet info "+(i+1)+" :");
-                System.out.println("Name: "+myList.get(i).getName());
-                System.out.println("Age: "+myList.get(i).getAge());
+        myPet = inputData(myPet,val);
+        showdata(myPet);
     }
 
-    private static ArrayList inputData(ArrayList<Pet> myList, int val) {
-        BufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        for (int i=1; i<=val; i++ ) {
-            Pet s = new Pet();
-            System.out.println("Enter pet info "+i+": ");
-            System.out.print("Name: ");
-            s.setName(reader.readLine());
-            System.out.print("Age: ");
-            s.setAge(Integer.parseInt(reader.readLine()));
-
+    private static void showdata(ArrayList<Pet> myPet) {
+        System.out.println("My Pets data shown below: ");
+        for (int i = 0; i < myPet.size(); i++) {
+            System.out.println(myPet.get(i).getClass().getSimpleName()+" "+myPet.get(i).toString());
         }
     }
+
+    private static ArrayList<Pet> inputData(ArrayList<Pet> myPet, int val) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Please enter you pets info.\n");
+        for (int i = 1; i <= val; i++) {
+            System.out.print("Pet: "+i+". if it is a \"Dog\" type 1 or \"Cat\" type other.    : ");
+            int t = Integer.parseInt(reader.readLine());
+            if (t == 1) {
+                Dog d = new Dog();
+                System.out.print("Dog name: ");
+                d.setName(reader.readLine());
+                System.out.print("Dog age: ");
+                d.setAge(Integer.parseInt(reader.readLine()));
+                myPet.add(d);
+            } else {
+                Cat c = new Cat();
+                System.out.print("Cat name: ");
+                c.setName(reader.readLine());
+                System.out.print("Cat age: ");
+                c.setAge(Integer.parseInt(reader.readLine()));
+                myPet.add(c);
+            }
+        }
+        return myPet;
+
+    }
 }
-
-    private static void showData() {
-    }
-
-    private static void showData() {
-    }
